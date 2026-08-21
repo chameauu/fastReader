@@ -6,3 +6,7 @@ dist/
 # ide
 .idea/
 .vscode/
+
+# rust/tauri build artifacts
+src-tauri/target/
+src-tauri/Cargo.lock
