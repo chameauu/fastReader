@@ -1,13 +1,16 @@
 import React, { useState, useCallback, useRef } from 'react'
+import ThemeToggle from './ThemeToggle'
 import './LandingScreen.css'
 
 interface LandingScreenProps {
   onStart: (text: string, title?: string) => void
   hasSavedPosition: boolean
   onResumeHint: () => void
+  isDark: boolean
+  onToggleTheme: () => void
 }
 
-const LandingScreen: React.FC<LandingScreenProps> = ({ onStart, hasSavedPosition, onResumeHint }) => {
+const LandingScreen: React.FC<LandingScreenProps> = ({ onStart, hasSavedPosition, onResumeHint, isDark, onToggleTheme }) => {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const [dragOver, setDragOver] = useState(false)
@@ -55,6 +58,9 @@ const LandingScreen: React.FC<LandingScreenProps> = ({ onStart, hasSavedPosition
 
   return (
     <div className="landing-screen">
+      <div className="landing-theme-toggle">
+        <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
+      </div>
       <div className="landing-content">
         <h1 className="landing-title">FastReader</h1>
         <p className="landing-subtitle">Speed reading, distilled</p>

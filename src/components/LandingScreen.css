@@ -1,4 +1,5 @@
 .landing-screen {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,6 +7,12 @@
   height: 100%;
   overflow-y: auto;
   padding: 24px;
+}
+
+.landing-theme-toggle {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
 }
 
 .landing-content {

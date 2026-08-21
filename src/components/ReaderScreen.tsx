@@ -5,7 +5,6 @@ import { hashContent } from '../utils/hash'
 import { loadSettings, saveSettings, loadPosition, savePosition, loadDisplayMode, saveDisplayMode } from '../engine/persistence'
 import { useRSVP } from '../hooks/useRSVP'
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts'
-import { useTheme } from '../hooks/useTheme'
 import { CloseIcon, GearIcon, ModeSplitIcon, ModeFocusIcon, ModeHighlightIcon } from './icons'
 import ThemeToggle from './ThemeToggle'
 import SettingsPanel from './SettingsPanel'
@@ -21,6 +20,8 @@ interface ReaderScreenProps {
   text: string
   title?: string
   onClose: () => void
+  isDark: boolean
+  onToggleTheme: () => void
 }
 
 const MODE_CYCLE: DisplayMode[] = ['split', 'focus', 'highlight']
@@ -35,9 +36,8 @@ const MODE_LABELS: Record<DisplayMode, string> = {
   highlight: 'Highlight view',
 }
 
-const ReaderScreen: React.FC<ReaderScreenProps> = ({ text, title, onClose }) => {
+const ReaderScreen: React.FC<ReaderScreenProps> = ({ text, title, onClose, isDark, onToggleTheme }) => {
   const { state: rsvpState, actions, init } = useRSVP()
-  const { theme, toggle: toggleTheme, isDark } = useTheme()
   const [displayMode, setDisplayMode] = useState<DisplayMode>(() => (loadDisplayMode() as DisplayMode) || 'split')
   const [showSettings, setShowSettings] = useState(false)
   const [contextCollapsed, setContextCollapsed] = useState(false)
@@ -152,7 +152,7 @@ const ReaderScreen: React.FC<ReaderScreenProps> = ({ text, title, onClose }) => 
         </button>
         <span className="reader-title">{title || 'FastReader'}</span>
         <div className="reader-header-actions">
-          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
+          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
           <button
             className="reader-header-btn"
             onClick={() => setShowSettings(s => !s)}
