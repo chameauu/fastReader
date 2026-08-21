@@ -1,0 +1,23 @@
+.countdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.countdown-number {
+  font-size: clamp(4rem, 15vw, 10rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-number {
+    animation: none;
+  }
+}

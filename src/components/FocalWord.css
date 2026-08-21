@@ -1,0 +1,64 @@
+.focal-word-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  gap: 12px;
+}
+
+.focal-guide-line {
+  width: 1px;
+  flex: 1;
+  max-height: 80px;
+  background: var(--color-text);
+  opacity: 0.15;
+}
+
+.focal-word {
+  font-size: var(--focal-size);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.focal-word--animate {
+  animation: pulse-in var(--anim-fast) ease both;
+}
+
+.focal-part {
+  display: inline;
+}
+
+.focal-part--dim {
+  opacity: 0.45;
+}
+
+.focal-part--orp {
+  font-weight: 700;
+  color: var(--color-orp);
+}
+
+.focal-ready {
+  font-size: var(--text-base);
+  color: var(--color-text-dim);
+  font-style: italic;
+  opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+  .focal-guide-line {
+    max-height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focal-word--animate {
+    animation: none;
+  }
+}

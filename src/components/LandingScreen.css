@@ -1,0 +1,206 @@
+.landing-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.landing-content {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.landing-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.landing-subtitle {
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: var(--text-sm);
+  margin: 0 0 8px;
+}
+
+.landing-resume-hint {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background var(--anim-fast);
+}
+
+.landing-resume-hint:hover {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.landing-dropzone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--anim-fast), background var(--anim-fast);
+}
+
+.landing-dropzone:hover,
+.landing-dropzone--active {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+}
+
+.landing-dropzone--has-text {
+  padding: 16px;
+  border-style: solid;
+  border-color: var(--color-border);
+}
+
+.landing-drop-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-dim);
+  font-size: var(--text-sm);
+}
+
+.landing-upload-icon {
+  opacity: 0.5;
+}
+
+.landing-file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.landing-file-icon {
+  font-size: 1.5rem;
+}
+
+.landing-file-name {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.landing-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-text-dim);
+  font-size: var(--text-xs);
+}
+
+.landing-divider::before,
+.landing-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.landing-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-panel);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--anim-fast);
+}
+
+.landing-textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.landing-textarea::placeholder {
+  color: var(--color-text-dim);
+  opacity: 0.6;
+}
+
+.landing-title-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-panel);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  outline: none;
+  transition: border-color var(--anim-fast);
+}
+
+.landing-title-input:focus {
+  border-color: var(--color-accent);
+}
+
+.landing-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.landing-word-count {
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.landing-start-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: opacity var(--anim-fast);
+}
+
+.landing-start-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.landing-start-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .landing-screen {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 48px;
+  }
+
+  .landing-dropzone {
+    padding: 24px 16px;
+  }
+}
