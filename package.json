@@ -5,8 +5,9 @@
   "description": "FastReader — a standalone speed reading web app using RSVP, inspired by Readest.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:watch": "vitest --watch"
   },
